@@ -155,17 +155,17 @@ try:
 
     # Checks if Google API Key exists, if it does it will display Google Maps location of address on file
     if GOOGLE_API_KEY == None:
-        new_content_stock_info = new_content_stock_info.replace('<div id="vis"></div>',f'Address: {" ".join([value for key, value in st_details["results"]["address"].items()])}\n'
+        new_content_stock_info = new_content_stock_info.replace('<div id="vis"></div>',f'<p>Address: {" ".join([value for key, value in st_details["results"]["address"].items()])}</p>\n'
                                                                                        f'<div id="vis"></div>')
     else:
         new_content_stock_info = new_content_stock_info.replace('<div id="vis"></div>',
-                                                                f'<iframe width="300"'
+                                                                f'<p><iframe width="300"'
                                                                 f'height="175"'
                                                                 f'frameborder="0"'
                                                                 f'style="border:0"'
                                                                 f'src="https://www.google.com/maps/embed/v1/place?key={GOOGLE_API_KEY}&q={" ".join([value for key, value in st_details["results"]["address"].items()])}"'
                                                                 f'allowfullscrean>'
-                                                                f'</iframe>\n'
+                                                                f'</iframe></p>\n'
                                                                 f'<div id="vis"></div>')
 
     new_content_stock_info = new_content_stock_info.replace('</body>', f'\n'
